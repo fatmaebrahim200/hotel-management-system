@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #1b2d55;
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+  background: #172b55;
+}
+
+.navbar {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  padding-left: 12%;
+
+  padding-right: 10%;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  width: 155px;
+
+  height: 90px;
+
+  background-color: #e5b963;
+
+  border-radius: 0 0 30px 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #17243b;
+}
+
+.logo h2 {
+  font-family: Georgia, serif;
+
+  font-size: 24px;
+
+  letter-spacing: 2px;
+}
+
+.logo span {
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  margin-top: 2px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+  display: flex;
+
+  gap: 55px;
+
+  padding-top: 38px;
+}
+
+.nav-links a {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  padding-bottom: 8px;
+}
+
+.nav-links a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+  width: 85%;
+  margin: 90px auto;
+}
+
+.contact-title h2 {
+  font-size: 36px;
+  color: #172b55;
+  margin-bottom: 20px;
+}
+
+.contact-title p {
+  width: 70%;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 70px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.contact-info {
+  width: 45%;
+}
+
+.contact-info p {
+  font-size: 22px;
+  line-height: 1.8;
+  color: #1b2d55;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #1b2d55;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.map-link i {
+  margin-left: 15px;
+}
+
+.contact-form {
+  width: 40%;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 10px;
+  color: #1b2d55;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 25px;
+  padding: 12px;
+  border: 1px solid #bfbfbf;
+  outline: none;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  height: 180px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #e0b76d;
+}
+
+.contact-form button {
+  width: 120px;
+  align-self: flex-end;
+  padding: 12px;
+  border: none;
+  background: #e0b76d;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.contact-form button:hover {
+  background: #c89b48;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  background: #172b55;
+  color: #fff;
+  margin-top: 120px;
+  padding: 60px 0;
+}
+
+.footer-container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-logo h3 {
+  color: #e0b76d;
+  margin-bottom: 15px;
+}
+
+.footer-logo p {
+  margin: 8px 0;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e0b76d;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social i {
+  margin-right: 10px;
+}
+
+.newsletter p {
+  margin-bottom: 20px;
+}
+
+.newsletter form {
+  display: flex;
+}
+
+.newsletter input {
+  padding: 12px;
+  width: 220px;
+  border: none;
+  outline: none;
+}
+
+.newsletter button {
+  border: none;
+  background: #e0b76d;
+  color: #fff;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .contact-title p {
+    width: 100%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .contact-title h2 {
+    font-size: 28px;
+  }
+
+  .contact-info p {
+    font-size: 18px;
+  }
+
+  .map-link {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

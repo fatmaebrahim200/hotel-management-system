@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Luxury Hotels - Rooms</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="./css/room.css" />
+
+    <!-- Font Awesome -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- =========================
+         HERO + NAVBAR
+    ========================== -->
+
+    <section class="hero">
+      <!-- NAVBAR -->
+
+      <header class="navbar">
+        <!-- LOGO -->
+
+        <div class="logo">
+          <h2>LUXURY</h2>
+
+          <span> HOTELS </span>
+        </div>
+
+        <!-- NAV LINKS -->
+
+        <nav class="nav-links">
+          <a href="./home.php"> Home </a>
+
+          <a href="./facilities.html"> Facilities </a>
+
+          <a href="./room.html" class="active"> Rooms </a>
+
+          <a href="./contact.html"> Contact-us </a>
+        </nav>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="nav-right">
+ <a href="./login.php">
+        <button class="login-btn">Login</button>
+        </a>
+<a href="./register.php">
+
+        <button class="register-btn">Register</button>
+
+        </a>
+          <!-- PROFILE -->
+
+          <div class="profile">
+            <img src="./iamges/user.png" alt="Profile" />
+
+            <!-- PROFILE MENU -->
+
+            <div class="profile-menu">
+              <a href="./profile.php">
+                <i class="fa-regular fa-user"></i>
+
+                My Profile
+              </a>
+
+              <a href="./mybooking.php">
+                <i class="fa-solid fa-calendar-check"></i>
+
+                My Bookings
+              </a>
+
+              <!-- <a href="#">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                            Wishlist
+
+                        </a>
+
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            Settings
+
+                        </a> -->
+
+              <a href="./logout.php" class="logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO CONTENT -->
+
+      <div class="hero-content">
+        <p class="welcome">DISCOVER OUR</p>
+
+        <h1>ROOMS</h1>
+
+        <p class="description">
+          Experience comfort, elegance and luxury
+
+          <br />
+
+          in every room we offer.
+        </p>
+
+        <button class="book-btn" id="bookBtn">
+          <i class="fa-solid fa-house"></i>
+
+          BOOK NOW
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         ROOMS SECTION
+    ========================== -->
+
+    <section class="rooms-section">
+      <!-- TITLE -->
+
+      <div class="section-title">
+        <h1>OUR ROOMS</h1>
+
+        <div class="gold-line"></div>
+
+        <p>Choose the perfect room for your unforgettable stay.</p>
+      </div>
+
+      <!-- =========================
+             SEARCH + FILTER
+        ========================== -->
+
+      <div class="room-controls">
+        <!-- SEARCH -->
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for a room..."
+          />
+        </div>
+
+        <!-- FILTER -->
+
+        <div class="filter-box">
+          <i class="fa-solid fa-filter"></i>
+
+          <select id="roomFilter">
+            <option value="all">All Rooms</option>
+
+            <option value="standard">Standard</option>
+
+            <option value="deluxe">Deluxe</option>
+
+            <option value="suite">Suite</option>
+
+            <option value="family">Family</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- =========================
+             ROOMS GRID
+        ========================== -->
+
+      <div class="rooms-container" id="roomsContainer">
+        <!-- ROOM 1 -->
+
+        <div class="room-card" data-name="Standard Room" data-type="standard">
+          <div class="room-image">
+            <img src="./iamges/room1.png" alt="Standard Room" />
+
+            <span class="room-badge"> STANDARD </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Standard Room</h3>
+
+            <p class="room-description">
+              Comfortable room with a beautiful modern design.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $120 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 2 -->
+
+        <div class="room-card" data-name="Deluxe Room" data-type="deluxe">
+          <div class="room-image">
+            <img src="./iamges/room2.png" alt="Deluxe Room" />
+
+            <span class="room-badge"> DELUXE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Deluxe Room</h3>
+
+            <p class="room-description">
+              Elegant room offering extra space and comfort.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $180 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 3 -->
+
+        <div class="room-card" data-name="Luxury Suite" data-type="suite">
+          <div class="room-image">
+            <img src="./iamges/room3.png" alt="Luxury Suite" />
+
+            <span class="room-badge"> SUITE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Luxury Suite</h3>
+
+            <p class="room-description">
+              A luxurious suite designed for a premium experience.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                3 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $250 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 4 -->
+
+        <div class="room-card" data-name="Family Room" data-type="family">
+          <div class="room-image">
+            <img src="./iamges/room4.png" alt="Family Room" />
+
+            <span class="room-badge"> FAMILY </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Family Room</h3>
+
+            <p class="room-description">
+              Spacious room perfect for families and groups.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                2 Beds
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                4 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $220 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 5 -->
+
+        <div class="room-card" data-name="Ocean View Room" data-type="deluxe">
+          <div class="room-image">
+            <img src="./iamges/room5.png" alt="Ocean View Room" />
+
+            <span class="room-badge"> DELUXE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Ocean View Room</h3>
+
+            <p class="room-description">
+              Wake up to a stunning view of the ocean.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $210 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 6 -->
+
+        <div class="room-card" data-name="Executive Room" data-type="deluxe">
+          <div class="room-image">
+            <img src="./iamges/room6.png" alt="Executive Room" />
+
+            <span class="room-badge"> DELUXE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Executive Room</h3>
+
+            <p class="room-description">
+              Perfect for business travelers seeking comfort.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $190 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 7 -->
+
+        <div class="room-card" data-name="Royal Suite" data-type="suite">
+          <div class="room-image">
+            <img src="./iamges/room7.png" alt="Royal Suite" />
+
+            <span class="room-badge"> SUITE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Royal Suite</h3>
+
+            <p class="room-description">
+              Experience royal luxury with elegant interiors.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                3 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $350 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 8 -->
+
+        <div class="room-card" data-name="Classic Room" data-type="standard">
+          <div class="room-image">
+            <img src="./iamges/room8.png" alt="Classic Room" />
+
+            <span class="room-badge"> STANDARD </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Classic Room</h3>
+
+            <p class="room-description">
+              A classic and cozy room for a relaxing stay.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 Queen Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $130 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 9 -->
+
+        <div
+          class="room-card"
+          data-name="Garden View Room"
+          data-type="standard"
+        >
+          <div class="room-image">
+            <img src="./iamges/room9.png" alt="Garden View Room" />
+
+            <span class="room-badge"> STANDARD </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Garden View Room</h3>
+
+            <p class="room-description">
+              Enjoy peaceful mornings overlooking our gardens.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 Queen Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $140 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 10 -->
+
+        <div class="room-card" data-name="Presidential Suite" data-type="suite">
+          <div class="room-image">
+            <img src="./iamges/room10.png" alt="Presidential Suite" />
+
+            <span class="room-badge"> SUITE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Presidential Suite</h3>
+
+            <p class="room-description">
+              The ultimate luxury experience for special guests.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                2 King Beds
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                4 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $500 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 11 -->
+
+        <div
+          class="room-card"
+          data-name="Family Deluxe Room"
+          data-type="family"
+        >
+          <div class="room-image">
+            <img src="./iamges/room11.png" alt="Family Deluxe Room" />
+
+            <span class="room-badge"> FAMILY </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Family Deluxe Room</h3>
+
+            <p class="room-description">
+              A spacious deluxe room for a memorable family trip.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                2 Queen Beds
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                4 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $280 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 12 -->
+
+        <div class="room-card" data-name="Business Room" data-type="standard">
+          <div class="room-image">
+            <img src="./iamges/room12.png" alt="Business Room" />
+
+            <span class="room-badge"> STANDARD </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Business Room</h3>
+
+            <p class="room-description">
+              A quiet space designed for productive business trips.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 Queen Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $150 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 13 -->
+
+        <div class="room-card" data-name="Honeymoon Suite" data-type="suite">
+          <div class="room-image">
+            <img src="./iamges/room13.png" alt="Honeymoon Suite" />
+
+            <span class="room-badge"> SUITE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Honeymoon Suite</h3>
+
+            <p class="room-description">
+              A romantic suite designed for unforgettable moments.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                1 King Bed
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $320 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 14 -->
+
+        <div class="room-card" data-name="Twin Deluxe Room" data-type="deluxe">
+          <div class="room-image">
+            <img src="./iamges/room14.png" alt="Twin Deluxe Room" />
+
+            <span class="room-badge"> DELUXE </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Twin Deluxe Room</h3>
+
+            <p class="room-description">
+              Modern room with two comfortable beds.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                2 Single Beds
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                2 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $170 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROOM 15 -->
+
+        <div
+          class="room-card"
+          data-name="Royal Family Suite"
+          data-type="family"
+        >
+          <div class="room-image">
+            <img src="./iamges/room15.png" alt="Royal Family Suite" />
+
+            <span class="room-badge"> FAMILY </span>
+          </div>
+
+          <div class="room-info">
+            <h3>Royal Family Suite</h3>
+
+            <p class="room-description">
+              A luxurious spacious suite perfect for large families.
+            </p>
+
+            <div class="room-details">
+              <span>
+                <i class="fa-solid fa-bed"></i>
+                2 King Beds
+              </span>
+
+              <span>
+                <i class="fa-solid fa-user"></i>
+                5 Guests
+              </span>
+            </div>
+
+            <div class="room-bottom">
+              <div>
+                <span> From </span>
+
+                <strong> $400 </strong>
+
+                <small> / Night </small>
+              </div>
+
+              <button class="room-book-btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NO RESULTS -->
+
+      <p class="no-results" id="noResults">No rooms found.</p>
+
+      <!-- SHOW MORE -->
+
+      <button class="show-more-btn" id="showMoreBtn">
+        VIEW ALL ROOMS
+
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </section>
+
+    <!-- =========================
+         TESTIMONIALS
+    ========================== -->
+
+    <section class="testimonials">
+      <h2>WHAT OUR GUESTS SAY</h2>
+
+      <div class="testimonial-line"></div>
+
+      <div class="testimonial-wrapper">
+        <button class="testimonial-arrow" id="prevBtn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="testimonial-content">
+          <p class="testimonial-text" id="testimonialText">
+            "Calm, Serene, Retro – What a way to relax and enjoy"
+          </p>
+
+          <p class="testimonial-name" id="testimonialName">
+            Mr. and Mrs. Baxter, UK
+          </p>
+
+          <div class="testimonial-dots">
+            <span class="dot active"></span>
+
+            <span class="dot"></span>
+
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <button class="testimonial-arrow" id="nextBtn">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- LOGO -->
+
+        <div class="footer-column logo-column">
+          <div class="footer-logo">
+            <h2>LUXURY</h2>
+
+            <span> HOTELS </span>
+          </div>
+
+          <p>497 Evergreen Rd. Roseville, CA 95673</p>
+
+          <p>+44 345 678 903</p>
+
+          <p>luxury-hotels@gmail.com</p>
+
+          <div class="social-icons">
+            <a href="#">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="#">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- LINKS -->
+
+        <div class="footer-column">
+          <h3>About Us</h3>
+
+          <a href="./home.php"> Home </a>
+
+          <a href="./facilities.html"> Facilities </a>
+
+          <a href="./rooms.html"> Rooms </a>
+
+          <a href="./contact.html"> Contact Us </a>
+        </div>
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+
+          <a href="#"> Privacy Policy </a>
+
+          <a href="#"> Refund Policy </a>
+
+          <a href="#"> Terms & Conditions </a>
+
+          <a href="#"> FAQ </a>
+        </div>
+
+        <!-- NEWSLETTER -->
+
+        <div class="footer-column newsletter">
+          <h3>Subscribe to our newsletter</h3>
+
+          <div class="email-box">
+            <input type="email" id="emailInput" placeholder="Email Address" />
+
+            <button id="subscribeBtn">SUBSCRIBE</button>
+          </div>
+
+          <p id="emailMessage" class="email-message"></p>
+        </div>
+      </div>
+
+      <div class="copyright">© 2024 Luxury Hotels. All Rights Reserved.</div>
+    </footer>
+
+    <!-- JS -->
+
+    <script src="./js/room.js"></script>
+  </body>
+</html>

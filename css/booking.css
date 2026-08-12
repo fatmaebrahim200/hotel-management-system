@@ -1,0 +1,983 @@
+/* ===========================
+        GOOGLE FONT
+=========================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f8f8f8;
+  color: #222;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 7%;
+
+  z-index: 100;
+
+  color: white;
+
+  animation: navbarAnimation 1s ease;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  width: 110px;
+  height: 80px;
+
+  background-color: #e5b94d;
+
+  border-radius: 0 0 25px 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #172d4f;
+
+  transition: 0.4s ease;
+}
+
+.logo:hover {
+  transform: translateY(5px);
+}
+
+.logo h2 {
+  font-family: Georgia, serif;
+
+  font-size: 18px;
+
+  letter-spacing: 2px;
+}
+
+.logo span {
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  margin-top: 3px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar nav {
+  display: flex;
+
+  gap: 35px;
+
+  margin-left: auto;
+
+  margin-right: 35px;
+}
+
+.navbar nav a {
+  color: white;
+text-decoration: none;
+  font-size: 13px;
+
+  position: relative;
+
+  padding: 10px 0;
+
+  transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #e5b94d;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.nav-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+/* .login-btn {
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  padding: 10px 20px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: white;
+
+  color: #172d4f;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+} */
+
+/* =========================
+   REGISTER
+========================= */
+/* 
+.register-btn {
+  background-color: #e5b94d;
+
+  color: #172d4f;
+
+  padding: 11px 20px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 15px rgba(229, 185, 77, 0.4);
+} */
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  position: relative;
+
+  margin-left: 10px;
+}
+
+.profile img {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 2px solid white;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.profile img:hover {
+  transform: scale(1.1);
+
+  border-color: #e5b94d;
+}
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profile-menu {
+  position: absolute;
+
+  top: 50px;
+
+  right: 0;
+
+  width: 150px;
+
+  background-color: #172d4f;
+
+  border-radius: 5px;
+
+  padding: 10px 0;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  display: none;
+}
+
+.profile-menu a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+
+  font-size: 11px;
+
+  padding: 10px 15px;
+
+  transition: 0.3s ease;
+}
+
+.profile-menu a:hover {
+  background-color: #243d63;
+
+  padding-left: 20px;
+}
+
+.profile-menu .logout {
+  color: #e85b5b;
+}
+
+
+/*=========================
+        HERO TEXT
+=========================*/
+/* 
+.overlay {
+  padding-top: 80px;
+  position: relative;
+
+  z-index: 2;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #fff;
+
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 60px;
+
+  font-family: "Playfair Display", serif;
+
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 18px;
+}
+
+.overlay i {
+  margin: 0 10px;
+} */
+/*=========================
+    BOOKING CONTAINER
+=========================*/
+
+.booking-container {
+  padding-top: 80px;
+  width: 90%;
+
+  max-width: 1250px;
+
+  margin: -90px auto 80px;
+
+  background: #fff;
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+
+  padding: 45px;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+/*=========================
+        ROOM CARD
+=========================*/
+
+.room-card {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 35px;
+
+  border: 1px solid #eee;
+
+  border-radius: 12px;
+
+  padding: 30px;
+
+  margin-bottom: 45px;
+
+  background: #fff;
+}
+
+.room-image {
+  width: 320px;
+
+  flex-shrink: 0;
+}
+
+.room-image img {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+.room-info {
+  flex: 1;
+}
+
+.room-info h2 {
+  font-size: 34px;
+
+  color: #13284a;
+
+  font-family: "Playfair Display", serif;
+
+  margin-bottom: 18px;
+}
+
+.room-info p {
+  color: #666;
+
+  line-height: 1.8;
+
+  margin-top: 18px;
+}
+
+.details {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+  margin-top: 15px;
+}
+
+.details span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #666;
+
+  font-size: 15px;
+}
+
+.details i {
+  color: #d8a63b;
+}
+
+.price {
+  text-align: right;
+
+  min-width: 180px;
+}
+
+.price h2 {
+  font-size: 48px;
+
+  color: #13284a;
+
+  font-family: "Playfair Display", serif;
+}
+
+.price p {
+  color: #777;
+
+  margin: 10px 0;
+}
+
+.price small {
+  display: block;
+
+  color: #28a745;
+
+  margin-top: 15px;
+
+  font-size: 14px;
+}
+
+.price small i {
+  margin-right: 6px;
+}
+
+/*=========================
+        BOOKING GRID
+=========================*/
+
+.booking-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 350px;
+
+  gap: 30px;
+
+  margin-top: 40px;
+}
+
+.left,
+.middle,
+.right {
+  background: #fff;
+
+  border: 1px solid #eee;
+
+  border-radius: 12px;
+
+  padding: 30px;
+}
+
+.left h2,
+.middle h2,
+.right h2 {
+  font-family: "Playfair Display", serif;
+
+  color: #13284a;
+
+  margin-bottom: 25px;
+}
+/*=========================
+        FORM
+=========================*/
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #13284a;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s;
+
+  background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #d8a63b;
+
+  box-shadow: 0 0 8px rgba(216, 166, 59, 0.25);
+}
+
+textarea {
+  resize: none;
+
+  min-height: 120px;
+}
+
+/*=========================
+    BOOKING SUMMARY
+=========================*/
+
+.summary {
+  margin-top: 10px;
+}
+
+.summary div {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin: 18px 0;
+
+  font-size: 16px;
+}
+
+.summary hr {
+  border: none;
+
+  border-top: 1px solid #e5e5e5;
+
+  margin: 20px 0;
+}
+
+.summary span:first-child {
+  color: #666;
+}
+
+.summary span:last-child {
+  font-weight: 600;
+
+  color: #13284a;
+}
+
+.total {
+  font-size: 24px !important;
+
+  font-weight: bold;
+}
+
+.total strong:last-child {
+  color: #d8a63b;
+}
+
+/*=========================
+      PAYMENT
+=========================*/
+
+.payment {
+  margin-top: 30px;
+}
+
+.payment label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+
+  margin-bottom: 15px;
+
+  color: #555;
+
+  font-weight: 500;
+}
+
+.payment input {
+  width: 18px;
+
+  height: 18px;
+
+  margin: 0;
+}
+
+/*=========================
+     CONFIRM BUTTON
+=========================*/
+
+.confirm {
+  width: 100%;
+
+  margin-top: 35px;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #d8a63b;
+
+  color: #fff;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.confirm:hover {
+  background: #b88b35;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(216, 166, 59, 0.35);
+}
+
+/*=========================
+      RIGHT CARD
+=========================*/
+
+.right {
+  height: fit-content;
+
+  position: sticky;
+
+  top: 30px;
+}
+/*=========================
+        FEATURES
+=========================*/
+
+.features {
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin: 80px auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+.features div {
+  background: #fff;
+
+  border-radius: 12px;
+
+  padding: 35px 20px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+.features div:hover {
+  transform: translateY(-8px);
+}
+
+.features i {
+  font-size: 42px;
+
+  color: #d8a63b;
+
+  margin-bottom: 18px;
+}
+
+.features h3 {
+  font-family: "Playfair Display", serif;
+
+  color: #13284a;
+
+  margin-bottom: 10px;
+}
+
+.features p {
+  color: #777;
+}
+
+/*=========================
+        FOOTER
+=========================*/
+
+footer {
+  background: #13284a;
+
+  color: #fff;
+
+  margin-top: 70px;
+}
+
+.footer {
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 70px 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 35px;
+}
+
+.footer h2 {
+  margin-bottom: 20px;
+
+  font-family: "Playfair Display", serif;
+}
+
+.footer a {
+  display: block;
+
+  color: #ddd;
+
+  margin: 12px 0;
+
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: #d8a63b;
+}
+
+.footer p {
+  color: #ccc;
+
+  margin: 10px 0;
+}
+
+.footer input {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  margin-bottom: 15px;
+}
+
+.footer button {
+  width: 100%;
+
+  padding: 14px;
+
+  background: #d8a63b;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 6px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.footer button:hover {
+  background: #b88b35;
+}
+
+.copy {
+  text-align: center;
+
+  padding: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: #bbb;
+}
+
+/*=========================
+      RESPONSIVE
+=========================*/
+
+@media (max-width: 1100px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    position: static;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .room-card {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .room-image {
+    width: 100%;
+  }
+
+  .room-image img {
+    width: 100%;
+
+    height: 260px;
+  }
+
+  .price {
+    text-align: center;
+  }
+
+  .details {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+
+    justify-content: center;
+
+    height: auto;
+
+    padding: 20px;
+
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 20px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .hero {
+    height: 300px;
+  }
+
+  .overlay h1 {
+    font-size: 38px;
+  }
+
+  .booking-container {
+    width: 95%;
+
+    margin-top: -60px;
+
+    padding: 20px;
+  }
+
+  .room-card {
+    padding: 20px;
+  }
+
+  .details {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .overlay h1 {
+    font-size: 30px;
+  }
+
+  .overlay p {
+    font-size: 15px;
+  }
+
+  .room-info h2 {
+    font-size: 28px;
+  }
+
+  .price h2 {
+    font-size: 36px;
+  }
+
+  .left,
+  .middle,
+  .right {
+    padding: 20px;
+  }
+
+  .confirm {
+    font-size: 16px;
+
+    padding: 14px;
+  }
+
+  .room-image img {
+    height: 200px;
+  }
+}

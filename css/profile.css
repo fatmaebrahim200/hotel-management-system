@@ -1,0 +1,929 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #142a45;
+    background: white;
+}
+
+:root {
+    --navy: #142a45;
+    --dark-navy: #0c2139;
+    --gold: #e5b64d;
+    --border: #e5e5e5;
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 7%;
+
+  z-index: 100;
+
+  color: white;
+
+  animation: navbarAnimation 1s ease;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  width: 110px;
+  height: 80px;
+
+  background-color: #e5b94d;
+
+  border-radius: 0 0 25px 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #172d4f;
+
+  transition: 0.4s ease;
+}
+
+.logo:hover {
+  transform: translateY(5px);
+}
+
+.logo h2 {
+  font-family: Georgia, serif;
+
+  font-size: 18px;
+
+  letter-spacing: 2px;
+}
+
+.logo span {
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  margin-top: 3px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navbar nav {
+  display: flex;
+
+  gap: 35px;
+
+  margin-left: auto;
+
+  margin-right: 35px;
+}
+
+.navbar nav a {
+  color: white;
+text-decoration: none;
+  font-size: 13px;
+
+  position: relative;
+
+  padding: 10px 0;
+
+  transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #e5b94d;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.nav-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+/* .login-btn {
+  background: transparent;
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  padding: 10px 20px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: white;
+
+  color: #172d4f;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+} */
+
+/* =========================
+   REGISTER
+========================= */
+/* 
+.register-btn {
+  background-color: #e5b94d;
+
+  color: #172d4f;
+
+  padding: 11px 20px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 15px rgba(229, 185, 77, 0.4);
+} */
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  position: relative;
+
+  margin-left: 10px;
+}
+
+.profile img {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 2px solid white;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.profile img:hover {
+  transform: scale(1.1);
+
+  border-color: #e5b94d;
+}
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profile-menu {
+  position: absolute;
+
+  top: 50px;
+
+  right: 0;
+
+  width: 150px;
+
+  background-color: #172d4f;
+
+  border-radius: 5px;
+
+  padding: 10px 0;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  display: none;
+}
+
+.profile-menu a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+
+  font-size: 11px;
+
+  padding: 10px 15px;
+
+  transition: 0.3s ease;
+}
+
+.profile-menu a:hover {
+  background-color: #243d63;
+
+  padding-left: 20px;
+}
+
+.profile-menu .logout {
+  color: #e85b5b;
+}
+
+/* ================= HEADER ================= */
+
+.page-header {
+    padding-top: 80px;
+    height: 240px;
+
+    background:
+        linear-gradient(
+            rgba(20,42,69,.88),
+            rgba(20,42,69,.92)
+        ),
+        url("../iamges/hero.png") no-repeat;
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 7%;
+
+    color: white;
+}
+
+.header-content p {
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+.header-content h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 8px;
+
+    font-size: 11px;
+
+    color: #ccc;
+}
+
+.breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+
+/* ================= PROFILE ================= */
+
+.profile-container {
+    width: 87%;
+    max-width: 1200px;
+
+    margin: 55px auto;
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 35px;
+}
+
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card {
+    border: 1px solid var(--border);
+
+    padding: 30px 25px;
+
+    height: fit-content;
+
+    text-align: center;
+
+    border-radius: 7px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 18px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid #f6f2e8;
+}
+
+.profile-card h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 22px;
+}
+
+.email {
+    color: #888;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+.gold-line {
+    width: 40px;
+    height: 2px;
+
+    background: var(--gold);
+
+    margin: 22px auto;
+}
+
+.profile-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    text-align: left;
+
+    margin-bottom: 18px;
+}
+.profile-item i {
+    color: var(--gold);
+
+    width: 20px;
+}
+
+.profile-item span {
+    display: block;
+
+    color: #999;
+
+    font-size: 9px;
+
+    margin-bottom: 3px;
+}
+
+.profile-item strong {
+    font-size: 11px;
+}
+
+.booking-btn {
+    display: block;
+
+    background: var(--gold);
+
+    color: var(--dark-navy);
+
+    text-decoration: none;
+
+    padding: 12px;
+
+    border-radius: 4px;
+
+    font-size: 11px;
+
+    margin-top: 25px;
+}
+
+
+/* ================= TITLE ================= */
+
+.title,
+.recent-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 20px;
+}
+
+.title p,
+.recent-title p {
+    color: #b38b35;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.title h2,
+.recent-title h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+}
+
+.title button {
+    background: white;
+
+    border: 1px solid var(--gold);
+
+    padding: 10px 16px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    color: var(--dark-navy);
+
+    font-size: 11px;
+}
+
+.title button:hover {
+    background: var(--gold);
+}
+
+
+/* ================= FORM ================= */
+
+#profileForm {
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    padding: 25px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.03);
+}
+
+.row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #555;
+}
+
+.input-box {
+    height: 45px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 12px;
+
+    background: #fafafa;
+}
+
+.input-box i {
+    color: #b18a32;
+
+    margin-right: 10px;
+}
+
+.input-box input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: 'Montserrat';
+
+    font-size: 11px;
+}
+
+.buttons {
+    display: none;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 10px 17px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+.cancel {
+    background: white;
+
+    border: 1px solid #ddd;
+}
+
+.save {
+    background: var(--gold);
+
+    border: none;
+
+    color: var(--dark-navy);
+
+    font-weight: 600;
+}
+
+
+/* ================= RECENT BOOKING ================= */
+
+.recent-title {
+    margin-top: 45px;
+}
+
+.recent-title > a {
+    color: #9b7628;
+
+    font-size: 10px;
+
+    text-decoration: none;
+}
+
+.booking-card {
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    padding: 15px;
+
+    display: grid;
+
+    grid-template-columns: 150px 1fr 100px;
+
+    gap: 18px;
+
+    align-items: center;
+}
+
+.booking-card img {
+    width: 150px;
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.confirmed {
+    background: #e8f5eb;
+
+    color: #3b8953;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 8px;
+}
+
+.booking-content h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 18px;
+
+    margin: 8px 0 5px;
+}
+
+.booking-content > p {
+    color: #888;
+
+    font-size: 9px;
+}
+
+.dates {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 12px;
+}
+
+.dates small {
+    display: block;
+
+    color: #999;
+
+    font-size: 8px;
+
+    margin-bottom: 3px;
+}
+
+.dates strong {
+    font-size: 9px;
+}
+
+.dates i {
+    color: var(--gold);
+}
+
+.price {
+    text-align: right;
+}
+
+.price small {
+    color: #999;
+
+    font-size: 8px;
+}
+
+.price h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 21px;
+
+    margin: 5px 0 10px;
+}
+
+.price button {
+    background: white;
+
+    border: 1px solid var(--gold);
+
+    padding: 7px 9px;
+
+    font-size: 8px;
+
+    cursor: pointer;
+}
+
+.price button:hover {
+    background: var(--gold);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--navy);
+
+    color: white;
+
+    padding: 45px 7% 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+
+    gap: 40px;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+}
+
+.footer-logo span {
+    display: block;
+
+    font-family: 'Montserrat';
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+}
+
+.footer-about p {
+    color: #bbb;
+
+    font-size: 9px;
+
+    margin-top: 10px;
+}
+
+.social {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 18px;
+}
+
+.footer-links h4,
+.newsletter h4 {
+    font-size: 12px;
+
+    margin-bottom: 18px;
+}
+
+.footer-links a {
+    display: block;
+
+    color: #bbb;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    margin-bottom: 12px;
+}
+
+.subscribe {
+    display: flex;
+
+    height: 38px;
+}
+
+.subscribe input {
+    width: 70%;
+
+    background: transparent;
+
+    border: 1px solid var(--gold);
+
+    padding: 8px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 9px;
+}
+
+.subscribe button {
+    width: 30%;
+
+    border: none;
+
+    background: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: bold;
+}
+
+.copyright {
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+
+    padding-top: 18px;
+
+    margin-top: 30px;
+
+    color: #aaa;
+
+    font-size: 9px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        max-width: 400px;
+
+        margin: auto;
+
+        width: 100%;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .login,
+    .register {
+        display: none;
+    }
+
+    .page-header {
+        padding-left: 25px;
+    }
+
+    .header-content h1 {
+        font-size: 35px;
+    }
+
+    .profile-container {
+        width: 92%;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .booking-card {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-card img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .price {
+        text-align: left;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
