@@ -4,7 +4,6 @@ session_start();
 
 include "../config/db.php";
 
-
 // =====================================================
 // CHECK ADMIN LOGIN
 // =====================================================
@@ -12,8 +11,175 @@ include "../config/db.php";
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] !== true) {
 
     header("Location: ../login.php");
-
     exit();
+
+}
+
+
+// =====================================================
+// ADD USER
+// =====================================================
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["add_user"])) {
+
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $phone = trim($_POST["phone"] ?? "");
+    $nationality = trim($_POST["nationality"] ?? "");
+    $date_of_birth = $_POST["date_of_birth"] ?? "";
+    $gender = $_POST["gender"] ?? "";
+    $password = $_POST["password"] ?? "";
+
+    // -------------------------------------------------
+    // VALIDATION
+    // -------------------------------------------------
+
+    if (
+        $name === "" ||
+        $email === "" ||
+        $nationality === "" ||
+        $date_of_birth === "" ||
+        $gender === "" ||
+        $password === ""
+    ) {
+
+        header("Location: users.php?error=empty");
+        exit();
+
+    }
+
+
+    // -------------------------------------------------
+    // EMAIL VALIDATION
+    // -------------------------------------------------
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        header("Location: users.php?error=email");
+        exit();
+
+    }
+
+
+    // -------------------------------------------------
+    // PASSWORD VALIDATION
+    // -------------------------------------------------
+
+    if (strlen($password) < 6) {
+
+        header("Location: users.php?error=password");
+        exit();
+
+    }
+
+
+    // -------------------------------------------------
+    // CHECK DUPLICATE EMAIL
+    // -------------------------------------------------
+
+    $check = mysqli_prepare(
+        $conn,
+        "SELECT id FROM users WHERE email = ?"
+    );
+
+    if (!$check) {
+
+        header("Location: users.php?error=database");
+        exit();
+
+    }
+
+
+    mysqli_stmt_bind_param(
+        $check,
+        "s",
+        $email
+    );
+
+    mysqli_stmt_execute($check);
+
+    $check_result = mysqli_stmt_get_result($check);
+
+
+    if (mysqli_num_rows($check_result) > 0) {
+
+        mysqli_stmt_close($check);
+
+        header("Location: users.php?error=exists");
+        exit();
+
+    }
+
+
+    mysqli_stmt_close($check);
+
+
+    // -------------------------------------------------
+    // HASH PASSWORD
+    // -------------------------------------------------
+
+    $hashed_password = password_hash(
+        $password,
+        PASSWORD_DEFAULT
+    );
+
+
+    // -------------------------------------------------
+    // INSERT USER
+    // -------------------------------------------------
+
+    $stmt = mysqli_prepare(
+        $conn,
+        "INSERT INTO users
+        (
+            name,
+            email,
+            phone,
+            nationality,
+            date_of_birth,
+            gender,
+            PASSWORD
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)"
+    );
+
+
+    if (!$stmt) {
+
+        header("Location: users.php?error=database");
+        exit();
+
+    }
+
+
+    mysqli_stmt_bind_param(
+        $stmt,
+        "sssssss",
+        $name,
+        $email,
+        $phone,
+        $nationality,
+        $date_of_birth,
+        $gender,
+        $hashed_password
+    );
+
+
+    if (mysqli_stmt_execute($stmt)) {
+
+        mysqli_stmt_close($stmt);
+
+        header("Location: users.php?success=added");
+        exit();
+
+    } else {
+
+        mysqli_stmt_close($stmt);
+
+        header("Location: users.php?error=database");
+        exit();
+
+    }
 
 }
 
@@ -22,46 +188,38 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] !== true) {
 // DELETE USER
 // =====================================================
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_id"])) {
 
-    if (isset($_POST["delete_id"])) {
-
-        $delete_id = (int) $_POST["delete_id"];
+    $delete_id = (int) $_POST["delete_id"];
 
 
-        if ($delete_id > 0) {
+    if ($delete_id > 0) {
 
-            $stmt = mysqli_prepare(
-                $conn,
-                "DELETE FROM users WHERE id = ?"
+        $stmt = mysqli_prepare(
+            $conn,
+            "DELETE FROM users WHERE id = ?"
+        );
+
+
+        if ($stmt) {
+
+            mysqli_stmt_bind_param(
+                $stmt,
+                "i",
+                $delete_id
             );
 
+            mysqli_stmt_execute($stmt);
 
-            if ($stmt) {
-
-                mysqli_stmt_bind_param(
-                    $stmt,
-                    "i",
-                    $delete_id
-                );
-
-
-                mysqli_stmt_execute($stmt);
-
-
-                mysqli_stmt_close($stmt);
-
-            }
+            mysqli_stmt_close($stmt);
 
         }
 
-
-        // Refresh page
-        header("Location: users.php");
-
-        exit();
-
     }
+
+
+    header("Location: users.php");
+    exit();
 
 }
 
@@ -71,7 +229,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // =====================================================
 
 $query = "
-
     SELECT
         id,
         name,
@@ -80,11 +237,8 @@ $query = "
         nationality,
         gender,
         date_of_birth
-
     FROM users
-
     ORDER BY id DESC
-
 ";
 
 
@@ -130,9 +284,7 @@ $result = mysqli_query(
 * {
 
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
 
     font-family: Arial, sans-serif;
@@ -147,7 +299,6 @@ $result = mysqli_query(
 body {
 
     background: #f7f5f1;
-
     color: #333;
 
 }
@@ -160,7 +311,6 @@ body {
 .sidebar {
 
     width: 230px;
-
     height: 100vh;
 
     background: #1f2a38;
@@ -168,7 +318,6 @@ body {
     position: fixed;
 
     left: 0;
-
     top: 0;
 
     padding: 25px 15px;
@@ -242,7 +391,6 @@ body {
 
 
 .menu a:hover,
-
 .menu a.active {
 
     background: #d6b77c;
@@ -381,6 +529,221 @@ body {
     color: #777;
 
     font-size: 14px;
+
+}
+
+
+/* =====================================================
+   ADD USER BUTTON
+===================================================== */
+
+.add-user-btn {
+
+    background: #d6b77c;
+
+    color: #1f2a38;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.add-user-btn:hover {
+
+    background: #c4a568;
+
+}
+
+
+/* =====================================================
+   ADD USER FORM
+===================================================== */
+
+.add-user-form {
+
+    display: none;
+
+    background: #fafafa;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 8px;
+
+    border: 1px solid #eee;
+
+}
+
+
+.add-user-form h3 {
+
+    margin-bottom: 20px;
+
+    color: #1f2a38;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group label {
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+    outline: none;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #d6b77c;
+
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.form-buttons {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.save-btn {
+
+    background: #1f2a38;
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+.save-btn:hover {
+
+    background: #2d3c4f;
+
+}
+
+
+.cancel-btn {
+
+    background: #ddd;
+
+    color: #333;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-btn:hover {
+
+    background: #ccc;
+
+}
+
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+.message {
+
+    padding: 12px 15px;
+
+    border-radius: 6px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+}
+
+
+.success {
+
+    background: #d4edda;
+
+    color: #155724;
+
+}
+
+
+.error {
+
+    background: #f8d7da;
+
+    color: #721c24;
 
 }
 
@@ -548,9 +911,7 @@ tr:hover {
 
 
     .logo h2,
-
     .logo span,
-
     .menu a span {
 
         display: none;
@@ -591,6 +952,24 @@ tr:hover {
 
     }
 
+
+    .users-title {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
 }
 
 </style>
@@ -606,7 +985,6 @@ tr:hover {
 ===================================================== -->
 
 <div class="sidebar">
-
 
     <div class="logo">
 
@@ -693,7 +1071,6 @@ tr:hover {
 </div>
 
 
-
 <!-- =====================================================
      MAIN
 ===================================================== -->
@@ -707,13 +1084,11 @@ tr:hover {
 
     <div class="topbar">
 
-
         <div>
 
             <h1>
                 Users
             </h1>
-
 
             <p>
                 Manage hotel users
@@ -732,53 +1107,326 @@ tr:hover {
 
         </div>
 
-
     </div>
 
 
-
     <!-- =================================================
-         USERS TABLE
+         USERS BOX
     ================================================= -->
 
     <div class="users-box">
 
 
+        <!-- =================================================
+             TITLE
+        ================================================= -->
+
         <div class="users-title">
 
+            <div>
 
-            <h2>
-                All Users
-            </h2>
+                <h2>
+                    All Users
+                </h2>
+
+                <span>
+
+                    <?php
+
+                    if ($result) {
+
+                        echo mysqli_num_rows($result);
+
+                    } else {
+
+                        echo "0";
+
+                    }
+
+                    ?>
+
+                    Users
+
+                </span>
+
+            </div>
 
 
-            <span>
+            <!-- ADD USER BUTTON -->
 
+            <button
+                type="button"
+                class="add-user-btn"
+                onclick="document.getElementById('addUserForm').style.display='block';"
+            >
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Add User
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             SUCCESS / ERROR MESSAGE
+        ================================================= -->
+
+        <?php if (isset($_GET["success"]) && $_GET["success"] === "added") { ?>
+
+            <div class="message success">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                User added successfully.
+
+            </div>
+
+        <?php } ?>
+
+
+        <?php if (isset($_GET["error"])) { ?>
+
+            <div class="message error">
 
                 <?php
 
-                if ($result) {
+                if ($_GET["error"] === "empty") {
 
-                    echo mysqli_num_rows($result);
+                    echo "Please fill in all required fields.";
+
+                } elseif ($_GET["error"] === "email") {
+
+                    echo "Please enter a valid email.";
+
+                } elseif ($_GET["error"] === "password") {
+
+                    echo "Password must be at least 6 characters.";
+
+                } elseif ($_GET["error"] === "exists") {
+
+                    echo "This email already exists.";
 
                 } else {
 
-                    echo "0";
+                    echo "Something went wrong. Please try again.";
 
                 }
 
                 ?>
 
+            </div>
 
-                Users
+        <?php } ?>
 
 
-            </span>
+        <!-- =================================================
+             ADD USER FORM
+        ================================================= -->
 
+        <div
+            id="addUserForm"
+            class="add-user-form"
+        >
+
+            <h3>
+                Add New User
+            </h3>
+
+
+            <form method="POST">
+
+
+                <input
+                    type="hidden"
+                    name="add_user"
+                    value="1"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <!-- NATIONALITY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Nationality
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nationality"
+                            placeholder="Enter nationality"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DATE OF BIRTH -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Date of Birth
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date_of_birth"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- GENDER -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                        </label>
+
+                        <select
+                            name="gender"
+                            required
+                        >
+
+                            <option value="">
+                                Select Gender
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Minimum 6 characters"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="form-buttons">
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Add User
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="document.getElementById('addUserForm').style.display='none';"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
 
         </div>
 
 
+        <!-- =================================================
+             USERS TABLE
+        ================================================= -->
 
         <div class="table-container">
 
@@ -787,7 +1435,6 @@ tr:hover {
 
 
                 <thead>
-
 
                     <tr>
 
@@ -825,9 +1472,7 @@ tr:hover {
 
                     </tr>
 
-
                 </thead>
-
 
 
                 <tbody>
@@ -835,17 +1480,14 @@ tr:hover {
 
                 <?php
 
-
                 if (
                     $result &&
                     mysqli_num_rows($result) > 0
                 ) {
 
-
                     while (
                         $user = mysqli_fetch_assoc($result)
                     ) {
-
 
                 ?>
 
@@ -868,11 +1510,9 @@ tr:hover {
                         </td>
 
 
-
                         <!-- NAME -->
 
                         <td>
-
 
                             <div class="user-info">
 
@@ -899,9 +1539,7 @@ tr:hover {
 
                             </div>
 
-
                         </td>
-
 
 
                         <!-- EMAIL -->
@@ -919,7 +1557,6 @@ tr:hover {
                         </td>
 
 
-
                         <!-- PHONE -->
 
                         <td>
@@ -933,7 +1570,6 @@ tr:hover {
                             ?>
 
                         </td>
-
 
 
                         <!-- NATIONALITY -->
@@ -951,7 +1587,6 @@ tr:hover {
                         </td>
 
 
-
                         <!-- GENDER -->
 
                         <td>
@@ -967,7 +1602,6 @@ tr:hover {
                         </td>
 
 
-
                         <!-- DATE OF BIRTH -->
 
                         <td>
@@ -981,7 +1615,6 @@ tr:hover {
                             ?>
 
                         </td>
-
 
 
                         <!-- DELETE -->
@@ -1027,7 +1660,6 @@ tr:hover {
 
                     }
 
-
                 } else {
 
                 ?>
@@ -1040,9 +1672,7 @@ tr:hover {
                             class="empty"
                         >
 
-                            <i
-                                class="fa-solid fa-users"
-                            ></i>
+                            <i class="fa-solid fa-users"></i>
 
                             <br>
 
@@ -1056,7 +1686,6 @@ tr:hover {
                 <?php
 
                 }
-
 
                 ?>
 

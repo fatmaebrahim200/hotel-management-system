@@ -318,45 +318,54 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <header class="navbar">
 
-    <div class="logo">
+    <!-- LOGO -->
+    <a href="./home.php" class="logo">
         <h2>LUXURY</h2>
         <span>HOTELS</span>
-    </div>
+    </a>
 
-    <nav>
+    <!-- NAV LINKS -->
+    <nav class="nav-links">
         <a href="./home.php">Home</a>
         <a href="./facilities.html">Facilities</a>
         <a href="./room.html">Rooms</a>
         <a href="./contact.html">Contact-us</a>
     </nav>
 
+    <!-- RIGHT SIDE -->
     <div class="nav-right">
+
         <div class="profile">
 
-            <img src="./iamges/user.png" alt="Profile">
+            <img
+                src="./iamges/user.png"
+                alt="Profile"
+            >
 
             <div class="profile-menu">
 
                 <a href="./profile.php">
                     <i class="fa-regular fa-user"></i>
-                    My Profile
+                    <span>My Profile</span>
                 </a>
 
                 <a href="./mybooking.php">
                     <i class="fa-solid fa-calendar-check"></i>
-                    My Bookings
+                    <span>My Bookings</span>
                 </a>
 
                 <a href="./logout.php" class="logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    Logout
+                    <span>Logout</span>
                 </a>
 
             </div>
-        </div>
-    </div>
-</header>
 
+        </div>
+
+    </div>
+
+</header>
 
     <!-- =================================================
          HERO CONTENT

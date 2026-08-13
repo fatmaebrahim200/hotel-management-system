@@ -36,98 +36,126 @@ button {
 ========================= */
 
 .navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 80px;
+    width: 100%;
+    height: 80px;
 
-  display: flex;
-  align-items: center;
+    padding: 0 7%;
 
-  padding: 0 7%;
+    display: flex;
+    align-items: center;
 
-  z-index: 100;
+    z-index: 100;
 
-  color: white;
+    color: rgb(142, 119, 18);
 
-  animation: navbarAnimation 1s ease;
+    animation: navbarAnimation 1s ease;
 }
+
 
 /* =========================
    LOGO
 ========================= */
 
 .logo {
-  width: 110px;
-  height: 80px;
+    width: 110px;
+    height: 80px;
 
-  background-color: #e5b94d;
+    background-color: #e5b94d;
 
-  border-radius: 0 0 25px 25px;
+    border-radius: 0 0 25px 25px;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-  color: #172d4f;
+    color: #172d4f;
 
-  transition: 0.4s ease;
+    text-decoration: none;
+
+    flex-shrink: 0;
+
+    transition: 0.4s ease;
 }
 
 .logo:hover {
-  transform: translateY(5px);
+    transform: translateY(5px);
 }
 
 .logo h2 {
-  font-family: Georgia, serif;
+    font-family: Georgia, serif;
 
-  font-size: 18px;
+    font-size: 18px;
 
-  letter-spacing: 2px;
+    letter-spacing: 2px;
+
+    margin: 0;
 }
 
 .logo span {
-  font-size: 8px;
+    font-size: 8px;
 
-  letter-spacing: 4px;
+    letter-spacing: 4px;
 
-  margin-top: 3px;
+    margin-top: 3px;
 }
+
 
 /* =========================
    NAV LINKS
 ========================= */
 
-.navbar nav {
-  display: flex;
+.nav-links {
+    display: flex;
 
-  gap: 35px;
+    align-items: center;
 
-  margin-left: auto;
+    gap: 35px;
 
-  margin-right: 35px;
+    margin-left: auto;
 }
 
-.navbar nav a {
-  color: white;
-text-decoration: none;
-  font-size: 13px;
+.nav-links a {
+    color:#f4f1eb;
 
-  position: relative;
+    text-decoration: none;
 
-  padding: 10px 0;
+    font-size: 13px;
 
-  transition: 0.3s ease;
+    position: relative;
+
+    padding: 10px 0;
+
+    transition: 0.3s ease;
 }
 
-.navbar nav a:hover {
-  color: #e5b94d;
+.nav-links a::after {
+    content: "";
 
-  transform: translateY(-2px);
+    position: absolute;
+
+    left: 0;
+    bottom: 3px;
+
+    width: 0;
+    height: 2px;
+
+    background: #e5b94d;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e5b94d;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 
@@ -136,154 +164,133 @@ text-decoration: none;
 ========================= */
 
 .nav-right {
-  display: flex;
+    display: flex;
 
-  align-items: center;
+    align-items: center;
 
-  gap: 10px;
+    gap: 15px;
+
+    margin-left: 35px;
 }
 
-/* =========================
-   LOGIN
-========================= */
-
-/* .login-btn {
-  background: transparent;
-
-  color: white;
-
-  border: 1px solid rgba(255, 255, 255, 0.5);
-
-  padding: 10px 20px;
-
-  border-radius: 4px;
-
-  font-size: 12px;
-
-  transition: 0.3s ease;
-}
-
-.login-btn:hover {
-  background-color: white;
-
-  color: #172d4f;
-
-  transform: translateY(-3px);
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-} */
-
-/* =========================
-   REGISTER
-========================= */
-/* 
-.register-btn {
-  background-color: #e5b94d;
-
-  color: #172d4f;
-
-  padding: 11px 20px;
-
-  border-radius: 4px;
-
-  font-size: 12px;
-
-  transition: 0.3s ease;
-}
-
-.register-btn:hover {
-  transform: translateY(-3px);
-
-  box-shadow: 0 5px 15px rgba(229, 185, 77, 0.4);
-} */
 
 /* =========================
    PROFILE
 ========================= */
 
 .profile {
-  position: relative;
+    position: relative;
 
-  margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .profile img {
-  width: 38px;
-  height: 38px;
+    width: 38px;
+    height: 38px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  object-fit: cover;
+    object-fit: cover;
 
-  border: 2px solid white;
+    border: 2px solid white;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  transition: 0.4s ease;
+    transition: 0.4s ease;
 }
 
 .profile img:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 
-  border-color: #e5b94d;
+    border-color: #e5b94d;
 }
+
 
 /* =========================
    PROFILE DROPDOWN
 ========================= */
 
 .profile-menu {
-  position: absolute;
+    position: absolute;
 
-  top: 50px;
+    top: 50px;
+    right: 0;
 
-  right: 0;
+    width: 170px;
 
-  width: 150px;
+    background-color: #172d4f;
 
-  background-color: #172d4f;
+    border-radius: 8px;
 
-  border-radius: 5px;
+    padding: 8px 0;
 
-  padding: 10px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: none;
 
-  display: none;
+    overflow: hidden;
 }
 
 .profile-menu a {
-  display: flex;
+    display: flex;
 
-  align-items: center;
+    align-items: center;
 
-  gap: 10px;
+    gap: 10px;
 
-  color: white;
+    color: #e5b94d;
 
-  font-size: 11px;
+    font-size: 12px;
 
-  padding: 10px 15px;
+    padding: 12px 15px;
 
-  transition: 0.3s ease;
+    text-decoration: none;
+
+    transition: 0.3s ease;
 }
 
 .profile-menu a:hover {
-  background-color: #243d63;
+    background-color: #243d63;
 
-  padding-left: 20px;
+    padding-left: 20px;
+}
+
+.profile-menu a i {
+    width: 16px;
+
+    text-align: center;
 }
 
 .profile-menu .logout {
-  color: #e85b5b;
+    color: #e85b5b;
 }
-
-
 /*=========================
         HERO TEXT
 =========================*/
-/* 
+
 .overlay {
+    padding-top: 80px;
+    height: 240px;
+
+    background:
+        linear-gradient(
+            rgba(20,42,69,.88),
+            rgba(20,42,69,.92)
+        ),
+        url("../iamges/profile.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 7%;
+
+    color: white;
   padding-top: 80px;
   position: relative;
 
@@ -299,9 +306,10 @@ text-decoration: none;
 
   align-items: center;
 
-  color: #fff;
+  color: #f9f9f9;
 
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .overlay h1 {
@@ -318,7 +326,7 @@ text-decoration: none;
 
 .overlay i {
   margin: 0 10px;
-} */
+}
 /*=========================
     BOOKING CONTAINER
 =========================*/
@@ -885,31 +893,52 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
 
-    justify-content: center;
+    .navbar {
+        height: auto;
 
-    height: auto;
+        min-height: 80px;
 
-    padding: 20px;
+        padding: 0 20px;
 
-    gap: 20px;
-  }
+        flex-wrap: wrap;
 
-  .nav-links {
-    flex-wrap: wrap;
+        justify-content: center;
 
-    justify-content: center;
+        gap: 10px;
+    }
 
-    gap: 20px;
-  }
+    .logo {
+        width: 100px;
+        height: 70px;
+    }
 
-  .nav-right {
-    flex-wrap: wrap;
+    .nav-links {
+        width: 100%;
 
-    justify-content: center;
-  }
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+        margin-left: 0;
+
+        order: 3;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-right {
+        margin-left: 15px;
+    }
+
+    .profile-menu {
+        right: 0;
+    }
+}
 
   .hero {
     height: 300px;
@@ -946,7 +975,7 @@ footer {
 
     text-align: center;
   }
-}
+
 
 @media (max-width: 500px) {
   .overlay h1 {
